@@ -1,0 +1,6 @@
+name = "Kick Assembler"
+grammar = "kickassembler"
+path_suffixes = ["asm", "a", "s", "S", "inc", "lib", "kick", "ka", "src"]
+tab_size = 4
+line_comments = ["// "]
+block_comment = ["/* ", " */"]
