@@ -8,3 +8,4 @@ repository = "https://github.com/chrx/zed-kickassembler"
 
 [grammars.kickassembler]
 repository = "https://github.com/chrx/tree-sitter-kickassembler"
+rev=cab8100f901048e2b60667c5bca3be2e5e8b4d27
