@@ -25,14 +25,14 @@
   (null)
 ] @constant
 
-[
-  (number)
-] @number
+(number) @number
 
 [
   (string)
   (char)
 ] @string
+
+(escape_sequence) @string.escape
 
 (comment) @comment
 
@@ -48,6 +48,48 @@
 (immediate_unary_expression (identifier) @variable)
 (immediate_identifier) @variable
 
+(directive_statement
+  (directive) @_directive
+  .
+  (identifier) @constant
+  (#match? @_directive "^\\.const$"))
+
+(directive_statement
+  (directive) @_directive
+  .
+  (identifier) @variable
+  (#match? @_directive "^\\.(var|label)$"))
+
+(directive_statement
+  (directive) @_directive
+  .
+  (identifier) @function
+  (#match? @_directive "^\\.(macro|function|pseudocommand)$"))
+
+(directive_statement
+  (directive) @_directive
+  (identifier)
+  (punctuation) @_parameter_separator
+  (identifier) @variable.parameter
+  (#match? @_directive "^\\.(macro|function|pseudocommand)$")
+  (#match? @_parameter_separator "^[,(]$"))
+
+(macro_call_statement
+  [
+    (identifier)
+    (immediate_identifier)
+  ] @variable.parameter)
+
 (register) @variable.special
 (operator) @operator
-(punctuation) @punctuation.delimiter
+
+[
+  "{"
+  "}"
+] @punctuation.bracket
+
+((punctuation) @punctuation.bracket
+  (#match? @punctuation.bracket "^[()\\[\\]]$"))
+
+((punctuation) @punctuation.delimiter
+  (#match? @punctuation.delimiter "^[,;:]$"))

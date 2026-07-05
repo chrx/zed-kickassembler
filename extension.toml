@@ -1,6 +1,6 @@
 id = "kickassembler"
 name = "Kick Assembler Support"
-version = "0.2.0"
+version = "0.2.1"
 schema_version = 1
 authors = ["Chris Page <chris@designchaos.net>"]
 description = "Language support for Kick Assembler"
@@ -8,4 +8,4 @@ repository = "https://github.com/chrx/zed-kickassembler"
 
 [grammars.kickassembler]
 repository = "https://github.com/chrx/tree-sitter-kickassembler"
-rev="cab8100f901048e2b60667c5bca3be2e5e8b4d27"
+rev="08eed81a4d882e24b50164bb9632e5f6ab8b69a8"
