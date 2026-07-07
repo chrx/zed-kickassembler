@@ -5,3 +5,9 @@ tab_size = 4
 line_comments = ["// "]
 word_characters = ["@", "!", "#"]
 block_comment = ["/* ", " */"]
+brackets = [
+  { start = "(", end = ")", close = true, newline = false },
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "'", end = "'", close = true, newline = false, not_in = ["string", "comment"] },
+]
